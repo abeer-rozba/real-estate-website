@@ -1,3 +1,5 @@
+const dns = require("dns")
+dns.setServers(["8.8.8.8", "1.1.1.1"])
 require('dotenv').config({ quiet: true })
 const express = require('express')
 const morgan = require('morgan')
@@ -29,5 +31,5 @@ app.get('/', (req, res) => {
 })
 
 app.listen(PORT, () => {
-  console.log('This works')
+  console.log(`This server is listening on port ${PORT}`)
 })
