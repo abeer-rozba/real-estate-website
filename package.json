@@ -1,7 +1,7 @@
 {
   "name": "real-estate-website",
   "version": "1.0.0",
-  "description": "- Abeer Rozba: [Linkedin](https://www.linkedin.com/in/abeerrozba) | [Github](https://github.com/abeer-rozba)\r - Intisar Hussain: [Linkedin](https://www.linkedin.com/in/intisarabdulla) | [Github](https://github.com/intisarHJM)\r ***\r ### Description\r #### This is a Node.js web application built with express as part of our Software Engineering Bootcamp program. With Home Sweet Home, users can sign up as either customers searching for their dream homes or agents promoting their properties. The website provides a list of available properties and their relevant information, as well as the contact details of the property's agent. Users can bookmark the properties they like so they can refer back to them later. Agents can create, read, update, and delete properties. This website is like an online catalog of beautiful homes waiting to find their families.",
+  "description": "This is a Node.js web application built with express as part of our Software Engineering Bootcamp program. With Home Sweet Home, users can sign up as either customers searching for their dream homes or agents promoting their properties. The website provides a list of available properties and their relevant information, as well as the contact details of the property's agent. Users can bookmark the properties they like so they can refer back to them later. Agents can create, read, update, and delete properties. This website is like an online catalog of beautiful homes waiting to find their families.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
