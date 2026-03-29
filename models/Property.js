@@ -1,11 +1,5 @@
 const mongoose = require('mongoose')
 
-const facilitySchema = new mongoose.Schema({
-  bedrooms: {
-    type: Number,
-  }
-})
-
 const propertySchema = new mongoose.Schema({
   area: {
     type: String,
@@ -18,9 +12,5 @@ const propertySchema = new mongoose.Schema({
   picture: {
     type: String,
     required: true
-  },
-  facilities: {
-    type: facilitySchema,
-    required: true
-  }, { timestamps: true }
+  }
 })
