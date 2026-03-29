@@ -3,9 +3,9 @@ const mongoose = require('mongoose')
 const agentSchema = new mongoose.Schema(
   {
     username: { type: String, required: true },
-    password: { type: String, required: true },
-    phoneNum: { type: Number, required: true },
     email: { type: String, required: true },
+    password: { type: String, required: true },
+    phoneNumber: { type: Number, required: true },
     company: { type: String, required: true }
   },
   { timestamps: true }
