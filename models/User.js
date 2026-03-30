@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const customerSchema = new mongoose.Schema(
+const userSchema = new mongoose.Schema(
   {
     username: { type: String, required: true },
     email: { type: String, required: true },
@@ -18,4 +18,4 @@ const customerSchema = new mongoose.Schema(
   },
   { timestamps: true }
 )
-module.exports = mongoose.model('Customer', customerSchema)
+module.exports = mongoose.model('User', userSchema)
