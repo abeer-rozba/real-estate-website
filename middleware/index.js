@@ -10,9 +10,9 @@ const checkRole = (req, res, next) => {
   if (!user) {
     return res.redirect("/login")
   }
-  if (user.role == agent) {
+  if (user.role == "Agent") {
     res.render("./agent/index.ejs")
-  } else if (user.role == customer) {
+  } else if (user.role == "Customer") {
     res.render("./customer/index.ejs")
   } else {
     return res.redirect("/login")
