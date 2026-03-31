@@ -16,4 +16,6 @@ router.get('/:id/edit', (req, res) => {
 })
 router.put('/:id/edit', hotelController.updateHotel)
 
+router.delete('/:id', hotelController.deleteHotel)
+
 module.exports = router

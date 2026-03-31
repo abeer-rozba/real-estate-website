@@ -38,9 +38,19 @@ const updateHotel = async (req, res) => {
   }
 }
 
+const deleteHotel = async (req, res) => {
+  try {
+    await Hotel.findByIdAndDelete(req.params.id)
+    return res.send('Successfully deleted the hotel.')
+  } catch (error) {
+    console.error('Error occurred while deleting the hotel: ', error.message)
+  }
+}
+
 module.exports = {
   getAllHotels,
   createHotel,
   getHotelById,
-  updateHotel
+  updateHotel,
+  deleteHotel
 }
