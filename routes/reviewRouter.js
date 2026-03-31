@@ -7,4 +7,6 @@ router.get('/new', (req, res) => {
 })
 router.post('/:hotelId/new', reviewController.createReview)
 
+router.get('/:hotelId', reviewController.getReviewsByHotel)
+
 module.exports = router

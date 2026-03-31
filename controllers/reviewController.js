@@ -17,6 +17,21 @@ const createReview = async (req, res) => {
   }
 }
 
+const getReviewsByHotel = async (req, res) => {
+  try {
+    const reviews = await Review.find({ hotel: req.params.hotelId }).populate(
+      'hotel'
+    )
+    return res.send(reviews)
+  } catch (error) {
+    console.error(
+      'Error occurred while getting reviews of this hotel: ',
+      error.message
+    )
+  }
+}
+
 module.exports = {
-  createReview
+  createReview,
+  getReviewsByHotel
 }
