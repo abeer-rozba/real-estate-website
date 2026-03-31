@@ -1,35 +1,58 @@
-const User = require('../models/User.js')
+const User = require("../models/User.js")
 
-const getAllBookmarks = async (req, res) => {
-  try {
-    const bookmarks = await User.find({})
+// const getAllBookmarks = async (req, res) => {
+//   try {
+//     const bookmarks = await User.find({})
 
-    console.log("All your bookmarks are here!")
-    res.render("./user/bookmarks.ejs", { bookmarks })
-  } catch (error) {
-    console.error('Error occurred in getting all bookmarks !', error.message)
-  }
-}
+//     console.log("All your bookmarks are here!")
+//     res.render("./user/bookmarks.ejs", { bookmarks })
+//   } catch (error) {
+//     console.error("Error occurred in getting all bookmarks !", error.message)
+//   }
+// }
+
+//tested successfully
 const showProfile = async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
-    res.render('./users/show.ejs', { user })
+    if (!user) {
+      res.status(404).send("user not found")
+    }
+    // res.send(`User Found:username:${user.username} , email:${user.email} `)
+    res.render("./users/show.ejs", { user })
   } catch (error) {
-    console.error('Error occurred in getting user by id !', error.message)
+    console.error("Error occurred in getting user by id !", error.message)
   }
 }
 
 const editProfile = async (req, res) => {
   try {
-    await User.findOneAndUpdate({ username: req.session.user.username })
-  } catch (error) {}
+    // //verify the user is logged in and it is the right user
+    // if (!req.session.user || req.session.user.id !== req.params.id) {
+    //   return res
+    //     .status(403)
+    //     .send("Forbidden: You are not allowed to edit this profile")
+    // }
+
+    const user = await User.findOneAndUpdate(
+      { username: req.session.user.username },
+      { email: req.body.email },
+      { returnDocument: "after" }
+    )
+    res.send(
+      `User updated :New username:${user.username} , New email:${user.email} `
+    )
+    // res.redirect("./users/show.ejs", { user })
+  } catch (error) {
+    console.error("Error occurred in editing the profile !", error.message)
+    res.status(500).send("Server error")
+  }
 }
 
-const updateProfile = async (req, res) => {}
 
 module.exports = {
-  getAllBookmarks,
+  // getAllBookmarks,
   showProfile,
   editProfile,
-  updateProfile,
+  // updateProfile,
 }

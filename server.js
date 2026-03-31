@@ -13,9 +13,9 @@ const db = require('./db')
 const PORT = process.env.PORT ? process.env.PORT : 3000
 
 const authRouter = require('./routes/authRouter')
-// const userRouter = require("./routes/userRouter")
-// const hotelRouter = require("./routes/hotelRouter")
-// const reviewRouter = require("./routes/reviewRouter")
+const userRouter = require("./routes/userRouter")
+// // const hotelRouter = require("./routes/hotelRouter")
+// // const reviewRouter = require("./routes/reviewRouter")
 
 const app = express()
 
@@ -38,7 +38,7 @@ app.use(
 app.use(middleware.passUserToView)
 
 app.use('/auth', authRouter)
-// app.use('/users', userRouter)
+app.use('/users', userRouter)
 // app.use('/hotels', hotelRouter)
 // app.use('/reviews', reviewRouter)
 
