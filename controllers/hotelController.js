@@ -27,8 +27,30 @@ const getHotelById = async (req, res) => {
   }
 }
 
+const updateHotel = async (req, res) => {
+  try {
+    const hotel = await Hotel.findByIdAndUpdate(req.params.id, req.body, {
+      returnDocument: 'after'
+    })
+    return res.send(hotel)
+  } catch (error) {
+    console.error('Error occurred while updating the hotel: ', error.message)
+  }
+}
+
+const deleteHotel = async (req, res) => {
+  try {
+    await Hotel.findByIdAndDelete(req.params.id)
+    return res.send('Successfully deleted the hotel.')
+  } catch (error) {
+    console.error('Error occurred while deleting the hotel: ', error.message)
+  }
+}
+
 module.exports = {
   getAllHotels,
   createHotel,
-  getHotelById
+  getHotelById,
+  updateHotel,
+  deleteHotel
 }
