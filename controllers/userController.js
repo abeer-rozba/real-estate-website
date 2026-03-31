@@ -3,9 +3,7 @@ const User = require('../models/User.js')
 const getAllBookmarks = async (req, res) => {
   try {
     const bookmarks = await User.find({})
-
-    console.log('All your bookmarks are here!')
-    res.render('./user/bookmarks.ejs', { bookmarks })
+    return res.send(bookmarks)
   } catch (error) {
     console.error('Error occurred while getting all bookmarks: ', error.message)
   }
@@ -13,7 +11,7 @@ const getAllBookmarks = async (req, res) => {
 const showProfile = async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
-    res.render('./users/show.ejs', { user })
+    return res.send(user)
   } catch (error) {
     console.error('Error occurred while getting user profile: ', error.message)
   }
