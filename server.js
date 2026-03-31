@@ -43,7 +43,7 @@ app.use('/auth', authRouter)
 // app.use('/reviews', reviewRouter)
 
 app.get('/', (req, res) => {
-  res.render('./auth/sign-up.ejs')
+  res.send('Hello')
 })
 
 app.listen(PORT, () => {
