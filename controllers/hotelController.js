@@ -1,0 +1,24 @@
+const Hotel = require('../models/Hotel')
+
+const getAllHotels = async (req, res) => {
+  try {
+    const hotels = await Hotel.find({})
+    return res.send(hotels)
+  } catch (error) {
+    console.error('Error occurred while getting all hotels: ', error.message)
+  }
+}
+
+const createHotel = async (req, res) => {
+  try {
+    const hotel = await Hotel.create(req.body)
+    return res.send(hotel)
+  } catch (error) {
+    console.error('Error occurred while creating a hotel: ', error.message)
+  }
+}
+
+module.exports = {
+  getAllHotels,
+  createHotel
+}

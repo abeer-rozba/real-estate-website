@@ -4,10 +4,10 @@ const getAllBookmarks = async (req, res) => {
   try {
     const bookmarks = await User.find({})
 
-    console.log("All your bookmarks are here!")
-    res.render("./user/bookmarks.ejs", { bookmarks })
+    console.log('All your bookmarks are here!')
+    res.render('./user/bookmarks.ejs', { bookmarks })
   } catch (error) {
-    console.error('Error occurred in getting all bookmarks !', error.message)
+    console.error('Error occurred while getting all bookmarks: ', error.message)
   }
 }
 const showProfile = async (req, res) => {
@@ -15,7 +15,7 @@ const showProfile = async (req, res) => {
     const user = await User.findById(req.params.id)
     res.render('./users/show.ejs', { user })
   } catch (error) {
-    console.error('Error occurred in getting user by id !', error.message)
+    console.error('Error occurred while getting user profile: ', error.message)
   }
 }
 
@@ -31,5 +31,5 @@ module.exports = {
   getAllBookmarks,
   showProfile,
   editProfile,
-  updateProfile,
+  updateProfile
 }
