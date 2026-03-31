@@ -40,8 +40,32 @@ const getSingleReview = async (req, res) => {
   }
 }
 
+const updateReview = async (req, res) => {
+  try {
+    const review = await Review.findByIdAndUpdate(
+      req.params.reviewId,
+      req.body,
+      { returnDocument: 'after' }
+    )
+    return res.send(review)
+  } catch (error) {
+    console.error('Error occurred while updating this review: ', error.message)
+  }
+}
+
+const deleteReview = async (req, res) => {
+  try {
+    await Review.findByIdAndDelete(req.params.reviewId)
+    res.send('Review deleted successfully.')
+  } catch (error) {
+    console.error('Error occurred while deleting this review: ', error.message)
+  }
+}
+
 module.exports = {
   createReview,
   getReviewsByHotel,
-  getSingleReview
+  getSingleReview,
+  updateReview,
+  deleteReview
 }
