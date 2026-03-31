@@ -1,4 +1,4 @@
-const User = require("../models/User.js")
+const User = require('../models/User.js')
 
 const getAllBookmarks = async (req, res) => {
   try {
@@ -7,15 +7,15 @@ const getAllBookmarks = async (req, res) => {
     console.log("All your bookmarks are here!")
     res.render("./user/bookmarks.ejs", { bookmarks })
   } catch (error) {
-    console.error("Error occurred in getting all bookmarks !", error.message)
+    console.error('Error occurred in getting all bookmarks !', error.message)
   }
 }
 const showProfile = async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
-    res.render("./users/show.ejs", { user })
+    res.render('./users/show.ejs', { user })
   } catch (error) {
-    console.error("Error occurred in getting user by id !", error.message)
+    console.error('Error occurred in getting user by id !', error.message)
   }
 }
 
