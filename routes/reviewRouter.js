@@ -10,6 +10,7 @@ router.post('/:hotelId/new', reviewController.createReview)
 router.get('/:hotelId', reviewController.getReviewsByHotel)
 
 router.get('/:hotelId/:reviewId', reviewController.getSingleReview)
+router.delete('/:hotelId/:reviewId', reviewController.deleteReview)
 
 router.get('/:hotelId/:reviewId/edit', (req, res) => {
   res.render('./reviews/edit.ejs')
