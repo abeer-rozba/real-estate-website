@@ -27,28 +27,18 @@ const showProfile = async (req, res) => {
 
 const editProfile = async (req, res) => {
   try {
-    // //verify the user is logged in and it is the right user
-    // if (!req.session.user || req.session.user.id !== req.params.id) {
-    //   return res
-    //     .status(403)
-    //     .send("Forbidden: You are not allowed to edit this profile")
-    // }
-
-    const user = await User.findOneAndUpdate(
-      { username: req.session.user.username },
-      { email: req.body.email },
-      { returnDocument: "after" }
-    )
-    res.send(
-      `User updated :New username:${user.username} , New email:${user.email} `
-    )
-    // res.redirect("./users/show.ejs", { user })
+    const user = await User.findByIdAndUpdate(req.params.id, req.body, {
+      returnDocument: "after",
+    })
+    // res.send(
+    //   `User updated :New username:${user.username} , New email:${user.email} `
+    // )
+    res.redirect("./users/show.ejs", { user })
   } catch (error) {
     console.error("Error occurred in editing the profile !", error.message)
     res.status(500).send("Server error")
   }
 }
-
 
 module.exports = {
   // getAllBookmarks,
