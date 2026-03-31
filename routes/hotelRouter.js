@@ -11,4 +11,9 @@ router.post('/new', hotelController.createHotel)
 
 router.get('/:id', hotelController.getHotelById)
 
+router.get('/:id/edit', (req, res) => {
+  res.render('./hotel/edit.ejs')
+})
+router.put('/:id/edit', hotelController.updateHotel)
+
 module.exports = router
