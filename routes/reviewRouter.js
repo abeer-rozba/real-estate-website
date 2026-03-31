@@ -11,4 +11,9 @@ router.get('/:hotelId', reviewController.getReviewsByHotel)
 
 router.get('/:hotelId/:reviewId', reviewController.getSingleReview)
 
+router.get('/:hotelId/:reviewId/edit', (req, res) => {
+  res.render('./reviews/edit.ejs')
+})
+router.put('/:hotelId/:reviewId/edit', reviewController.updateReview)
+
 module.exports = router

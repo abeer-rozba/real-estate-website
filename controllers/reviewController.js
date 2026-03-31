@@ -40,8 +40,22 @@ const getSingleReview = async (req, res) => {
   }
 }
 
+const updateReview = async (req, res) => {
+  try {
+    const review = await Review.findByIdAndUpdate(
+      req.params.reviewId,
+      req.body,
+      { returnDocument: 'after' }
+    )
+    return res.send(review)
+  } catch (error) {
+    console.error('Error occurred while updating this review: ', error.message)
+  }
+}
+
 module.exports = {
   createReview,
   getReviewsByHotel,
-  getSingleReview
+  getSingleReview,
+  updateReview
 }
