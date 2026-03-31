@@ -40,7 +40,47 @@ const signUserIn = async (req, res) => {
   }
 }
 
+const signUserOut = async (req, res) => {
+  try {
+    req.session.destroy(() => {
+      res.redirect('/')
+    })
+  } catch (error) {
+    console.log(`An error has occurred while signing out: ${error.message}`)
+  }
+}
+
+const updatePassword = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id)
+    if (!user) return res.send('User does not exist!')
+
+    const validPassword = await bcrypt.compare(
+      req.body.oldPassword,
+      user.password
+    )
+    if (!validPassword) return res.send('Old password is incorrect!')
+
+    if (req.body.newPassword !== req.body.confirmNewPassword)
+      return res.send('Password and confirm password must match!')
+
+    const hashedPassword = await bcrypt.hash(req.body.newPassword, 12)
+
+    user.password = hashedPassword
+
+    await user.save()
+
+    res.send('Password has been updated.')
+  } catch (error) {
+    console.log(
+      `An error has occurred while updating password: ${error.message}`
+    )
+  }
+}
+
 module.exports = {
   registerUser,
-  signUserIn
+  signUserIn,
+  signUserOut,
+  updatePassword
 }
