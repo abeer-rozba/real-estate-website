@@ -31,7 +31,17 @@ const getReviewsByHotel = async (req, res) => {
   }
 }
 
+const getSingleReview = async (req, res) => {
+  try {
+    const review = await Review.findById(req.params.reviewId)
+    return res.send(review)
+  } catch (error) {
+    console.error('Error occurred while getting this review: ', error.message)
+  }
+}
+
 module.exports = {
   createReview,
-  getReviewsByHotel
+  getReviewsByHotel,
+  getSingleReview
 }

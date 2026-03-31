@@ -9,4 +9,6 @@ router.post('/:hotelId/new', reviewController.createReview)
 
 router.get('/:hotelId', reviewController.getReviewsByHotel)
 
+router.get('/:hotelId/:reviewId', reviewController.getSingleReview)
+
 module.exports = router
