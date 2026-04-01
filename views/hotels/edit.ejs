@@ -1,11 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edit Hotel</title>
-  </head>
-  <body>
-    <h1>Edit Hotel</h1>
-  </body>
-</html>
+<%- include("../partials/header.ejs") %>
+<h2>Edit Hotel</h2>
+<form action="/hotels/<%=hotel._id%>?_method=PUT" method="POST">
+  <input type="text" name="name" value="<%=hotel.name%>" required />
+  <input type="number" name="stars" value="<%=hotel.stars%>" required />
+  <input type="text" name="area" value="<%=hotel.area%>" required />
+  <input
+    type="number"
+    name="averagePricePerNight"
+    value="<%=hotel.averagePricePerNight%>"
+    required
+  />
+  <input type="text" name="picture" value="<%=hotel.picture%>" />
+  <button type="submit">Update</button> <br />
+
+  <a href="/hotels/<%=hotel._id%>">Cancel</a>
+</form>
+<%- include("../partials/footer.ejs") %>
