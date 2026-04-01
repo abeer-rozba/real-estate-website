@@ -1,11 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>New Hotel</title>
-  </head>
-  <body>
-    <h1>New Hotel</h1>
-  </body>
-</html>
+<%- include("../partials/header.ejs") %>
+<h2>New Hotel</h2>
+<form action="/hotels/new" method="POST">
+  <input type="text" name="name" placeholder="Name" required />
+  <input type="number" name="stars" placeholder="Stars" required />
+  <input type="text" name="area" placeholder="Area" required />
+  <input
+    type="number"
+    name="averagePricePerNight"
+    placeholder="Average Price Per Night"
+    required
+  />
+  <input type="text" name="picture" placeholder="Image URL" />
+  <button type="submit">Create</button>
+</form>
+<%- include("../partials/footer.ejs") %>

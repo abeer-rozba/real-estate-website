@@ -12,7 +12,7 @@ const getAllHotels = async (req, res) => {
 const createHotel = async (req, res) => {
   try {
     const hotel = await Hotel.create(req.body)
-    return res.send(hotel)
+    return res.redirect(`/hotels/${hotel._id}`)
   } catch (error) {
     console.error('Error occurred while creating a hotel: ', error.message)
   }
