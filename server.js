@@ -44,7 +44,7 @@ app.use("/hotels", hotelRouter)
 app.use("/reviews", reviewRouter)
 
 app.get("/", (req, res) => {
-  res.render("./welcome.ejs")
+  res.render("./users/welcome.ejs")
 })
 
 app.listen(PORT, () => {

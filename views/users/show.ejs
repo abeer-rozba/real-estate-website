@@ -3,9 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="\style.css" />
     <title>User profile</title>
   </head>
   <body>
-    <h1>User Profile</h1>
+    <div id="profile-design"></div>
+    <div class="userInfo">
+      <div id="icon-frame">
+        <input type="image" name="user-img" placeholder="👤" />
+      </div>
+      <div id="currentName"><h1><%=user.username%></h1></div>
+      <div id="currentEmail"><h2><%=user.email%></h2></div>
+      <div id="bio">
+        <input type="text" placeholder="Tell us about yourself.." />
+      </div>
+    </div>
+
+    <div>
+      <form action="/users/edit"></form>
+      <button type="submit">Update Profile</button>
+    </div>
   </body>
 </html>
