@@ -1,6 +1,6 @@
 <%- include("../partials/header.ejs") %>
 <h2>Edit Hotel</h2>
-<form action="/hotels/<%=hotel._id%>?_method=PUT" method="POST">
+<form action="/hotels/<%=hotel._id%>/edit?_method=PUT" method="POST">
   <input type="text" name="name" value="<%=hotel.name%>" required />
   <input type="number" name="stars" value="<%=hotel.stars%>" required />
   <input type="text" name="area" value="<%=hotel.area%>" required />

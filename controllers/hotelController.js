@@ -32,7 +32,7 @@ const updateHotel = async (req, res) => {
     const hotel = await Hotel.findByIdAndUpdate(req.params.id, req.body, {
       returnDocument: 'after'
     })
-    return res.send(hotel)
+    return res.redirect(`/hotels/${hotel._id}`)
   } catch (error) {
     console.error('Error occurred while updating the hotel: ', error.message)
   }
@@ -40,8 +40,8 @@ const updateHotel = async (req, res) => {
 
 const deleteHotel = async (req, res) => {
   try {
-    await Hotel.findByIdAndDelete(req.params.id)
-    return res.send('Successfully deleted the hotel.')
+    const hotel = await Hotel.findByIdAndDelete(req.params.id)
+    return res.render('./hotels/delete.ejs', { hotelName: hotel.name })
   } catch (error) {
     console.error('Error occurred while deleting the hotel: ', error.message)
   }
