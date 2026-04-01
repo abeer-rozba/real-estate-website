@@ -36,6 +36,12 @@ app.use(
 )
 
 app.use(middleware.passUserToView)
+app.use((req, res, next) => {
+  if (!req.session.user && !req.path.startsWith('/auth')) {
+    return res.redirect('/auth/sign-in')
+  }
+  next()
+})
 app.use(express.static('./style'))
 
 app.use('/auth', authRouter)
