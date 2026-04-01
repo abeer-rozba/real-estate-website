@@ -8,13 +8,11 @@
 </head>
 <body>
   <nav>
-    <a href="/">Home</a> |
     <% if (!user) { %>
       <a href="/auth/sign-up">Sign Up</a> |
       <a href="/auth/sign-in">Sign In</a>
     <% } else { %>
       <a href="/hotels">Explore Hotels | </a>
-      <a href="/reviews/new">Review A Hotel | </a>
       <a href="/users/<%=user._id%>">My Profile | </a>
       <a href="/auth/sign-out">Sign Out</a>
     <% } %>

@@ -1,27 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="\style.css" />
-    <title>User profile</title>
-  </head>
-  <body>
-    <div id="profile-design"></div>
-    <div class="userInfo">
-      <div id="icon-frame">
-        <input type="image" name="user-img" placeholder="👤" />
-      </div>
-      <div id="currentName"><h1><%=user.username%></h1></div>
-      <div id="currentEmail"><h2><%=user.email%></h2></div>
-      <div id="bio">
-        <input type="text" placeholder="Tell us about yourself.." />
-      </div>
-    </div>
+<%- include("../partials/header.ejs") %>
 
-    <div>
-      <form action="/users/edit"></form>
-      <button type="submit">Update Profile</button>
-    </div>
-  </body>
-</html>
+<h2><%= user.username %>'s Profile</h2>
+<p>Email: <%=user.email%></p>
+<a href="/users/<%=user._id%>/edit">Edit profile</a> <br />
+<a href="/auth/<%=user._id%>/update-password">Update password</a> <br />
+<a href="/users/<%=user._id%>/reviews">My Reviews</a>
+
+<%- include("../partials/footer.ejs") %>

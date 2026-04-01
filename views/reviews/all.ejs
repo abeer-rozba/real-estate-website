@@ -1,0 +1,26 @@
+<%- include("../partials/header.ejs") %>
+  <h2>Reviews for <%=hotel.name%></h2>
+  <p><a href="/reviews/<%=hotel._id%>/new">Post A Review</a></p>
+
+    <% if (reviews.length === 0) { %>
+      <p>No reviews yet.</p>
+    <% } %>
+
+    <% reviews.forEach((review) => { %>
+      <ul>
+        <li>
+        <a href="/reviews/<%=hotel._id%>/<%=review._id%>">
+        <h3><%= review.title %></h3></a>
+        <p>Rating: <%= review.rating %>/5</p>
+
+        <% if (review.author) { %>
+          <p>By: <%= review.author.username %></p>
+        <% } else { %>
+          <p>By: (unknown user)</p></li>
+        <% } %>
+      </ul>
+    <% }) %>
+
+    <p><a href="/hotels/<%=hotel._id%>">Go Back</a></p>
+  <a href="/hotels/new">Suggest A Hotel</a>
+<%- include("../partials/footer.ejs") %>

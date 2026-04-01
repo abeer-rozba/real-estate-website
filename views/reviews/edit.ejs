@@ -1,11 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edit Review</title>
-  </head>
-  <body>
-    <h1>Edit Review</h1>
-  </body>
-</html>
+<%- include("../partials/header.ejs") %>
+<h2>Edit Review</h2>
+<h3>On <%=review.hotel.name%>:</h3>
+<form
+  action="/reviews/<%=review.hotel._id%>/<%=review._id%>/edit?_method=PUT"
+  method="POST"
+>
+  <label>Title:</label>
+  <input type="text" name="title" value="<%=review.title%>" required />
+
+  <label>Rating (1-5):</label>
+  <input
+    type="number"
+    name="rating"
+    value="<%=review.rating%>"
+    min="1"
+    max="5"
+    required
+  />
+
+  <label>Body:</label>
+  <textarea name="body" rows="5" required><%=review.body%></textarea>
+
+  <button type="submit">Update</button> <br />
+
+  <a href="/reviews/<%=review.hotel._id%>">Cancel</a>
+</form>
+<%- include("../partials/footer.ejs") %>
