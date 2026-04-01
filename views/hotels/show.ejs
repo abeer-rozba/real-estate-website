@@ -1,0 +1,9 @@
+<%- include("../partials/header.ejs") %>
+<h2><%=hotel.name%> | <%for(let stars=0; stars < hotel.stars; stars++ ){ %>
+                  ⭐
+            <%}%></h2>
+<img src="<%=hotel.picture%>" alt="<%=hotel.name%>" width="400" />
+<p> Located in <%=hotel.area%> | Average Price Per Night: <%= hotel.averagePricePerNight %> BD</p>
+      <a href="/reviews/<%=hotel._id%>">See Reviews</a>
+
+<%- include("../partials/footer.ejs") %>
