@@ -1,49 +1,49 @@
-const dns = require('dns')
-dns.setServers(['8.8.8.8', '1.1.1.1'])
-require('dotenv').config({ quiet: true })
-const middleware = require('./middleware')
-const express = require('express')
-const morgan = require('morgan')
-const methodOverride = require('method-override')
-const session = require('express-session')
-const { MongoStore } = require('connect-mongo')
-const path = require('path')
-const db = require('./db')
+const dns = require("dns")
+dns.setServers(["8.8.8.8", "1.1.1.1"])
+require("dotenv").config({ quiet: true })
+const middleware = require("./middleware")
+const express = require("express")
+const morgan = require("morgan")
+const methodOverride = require("method-override")
+const session = require("express-session")
+const { MongoStore } = require("connect-mongo")
+const path = require("path")
+const db = require("./db")
 
 const PORT = process.env.PORT ? process.env.PORT : 3000
 
-const authRouter = require('./routes/authRouter')
+const authRouter = require("./routes/authRouter")
 const userRouter = require("./routes/userRouter")
-// // const hotelRouter = require("./routes/hotelRouter")
+const hotelRouter = require("./routes/hotelRouter")
 // // const reviewRouter = require("./routes/reviewRouter")
 
 const app = express()
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-app.use(express.static(path.join(__dirname, 'public')))
-app.use(morgan('dev'))
-app.use(methodOverride('_method'))
+app.use(express.static(path.join(__dirname, "public")))
+app.use(morgan("dev"))
+app.use(methodOverride("_method"))
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
     store: MongoStore.create({
-      mongoUrl: process.env.MONGODB_URI
-    })
+      mongoUrl: process.env.MONGODB_URI,
+    }),
   })
 )
 
 app.use(middleware.passUserToView)
 
-app.use('/auth', authRouter)
-app.use('/users', userRouter)
-// app.use('/hotels', hotelRouter)
+app.use("/auth", authRouter)
+app.use("/users", userRouter)
+app.use("/hotels", hotelRouter)
 // app.use('/reviews', reviewRouter)
 
-app.get('/', (req, res) => {
-  res.send('Hello')
+app.get("/", (req, res) => {
+  res.render("./welcome.ejs")
 })
 
 app.listen(PORT, () => {
