@@ -22,6 +22,11 @@ const hotelSchema = new mongoose.Schema(
       type: String,
       required: true
     },
+    author: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Hotel',
+      required: true
+    },
     reviews: [
       {
         type: mongoose.Schema.Types.ObjectId,

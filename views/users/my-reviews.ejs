@@ -1,0 +1,18 @@
+<%- include("../partials/header.ejs") %>
+
+<h2>My Reviews</h2>
+<% if (reviews.length === 0) { %>
+      <p>You didn't post any reviews yet.</p>
+    <% } %>
+
+    <% reviews.forEach((review) => { %>
+      <ul>
+        <li>
+        <a href="/reviews/<%=review.hotel._id%>/<%=review._id%>">
+        <h3>On <%=review.hotel.name%>: <%= review.title %></h3></a>
+        <p>Rating: <%= review.rating %>/5</p>
+      <p><%=review.body%></p></li>
+      </ul>
+    <% }) %>
+
+<%- include("../partials/footer.ejs") %>

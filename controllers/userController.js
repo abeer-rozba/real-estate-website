@@ -10,10 +10,9 @@ const showProfile = async (req, res) => {
     const data = {
       _id: user._id,
       username: user.username,
-      bookmarks: user.bookmarks,
       reviews: user.reviews
     }
-    res.send(data)
+    return res.render('./users/show.ejs', { data })
   } catch (error) {
     console.error('Error occurred while getting user profile: ', error.message)
   }
@@ -21,14 +20,17 @@ const showProfile = async (req, res) => {
 
 const editProfile = async (req, res) => {
   try {
-    const user = await User.findByIdAndUpdate(req.params.id, req.body, {
+    const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {
       returnDocument: 'after'
     })
-    const data = {
-      username: user.username,
-      email: user.email
+
+    req.session.user = {
+      _id: updatedUser._id,
+      username: updatedUser.username,
+      email: updatedUser.email
     }
-    res.send(data)
+
+    res.redirect(`/users/${req.params.id}`)
   } catch (error) {
     console.error('Error occurred in editing the profile !', error.message)
     res.status(500).send('Server error')
@@ -37,9 +39,11 @@ const editProfile = async (req, res) => {
 
 const showUserReviews = async (req, res) => {
   try {
-    const reviews = await Review.find({ author: req.params.id })
+    const reviews = await Review.find({ author: req.params.id }).populate(
+      'hotel'
+    )
 
-    res.send(reviews)
+    res.render('./users/my-reviews.ejs', { reviews })
   } catch (error) {
     console.error('Error occurred while getting user reviews!', error.message)
   }

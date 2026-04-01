@@ -20,7 +20,7 @@ const createHotel = async (req, res) => {
 
 const getHotelById = async (req, res) => {
   try {
-    const hotel = await Hotel.findById(req.params.id)
+    const hotel = await Hotel.findById(req.params.id).populate('author')
     return res.render('./hotels/show.ejs', { hotel })
   } catch (error) {
     console.error('Error occurred while getting the hotel: ', error.message)

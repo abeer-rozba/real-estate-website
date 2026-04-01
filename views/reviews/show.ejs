@@ -1,0 +1,21 @@
+<%- include("../partials/header.ejs") %>
+  <h2><%=review.title%></h2>
+  <p>Rating: <%= review.rating %>/5</p>
+        <% if (review.author) { %>
+          <p>By: <%= review.author.username %></p>
+        <% } else { %>
+          <p>By: (unknown user)</p>
+        <% } %>
+    <p><%=review.body%></p>
+    <% if (user._id === review.author._id.toString()) { %>
+  <form action="/reviews/<%=review.hotel._id%>/<%=review._id%>/edit?_method=PUT">
+    <button>Edit</button>
+  </form>
+
+  <form action="/reviews/<%=review.hotel._id%>/<%=review._id%>?_method=DELETE" method="POST">
+    <button type="submit">Delete</button>
+  </form>
+<% } %>
+    <p><a href="/reviews/<%=review.hotel._id%>">Go Back</a></p>
+  <a href="/hotels/new">Suggest A Hotel</a>
+<%- include("../partials/footer.ejs") %>
