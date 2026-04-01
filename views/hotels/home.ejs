@@ -8,25 +8,37 @@
   <body>
     <h1>Hotels</h1>
     <div class="all_hotels">
-      <div id="hotel-1">
-        <div id="picture">
-          <img
-            src="https://i.pinimg.com/736x/46/03/3e/46033e02b4e4fb03d737b0d5f21c55dc.jpg"
-            alt="Four seasons Hotel building"
-          />
+
+      <% hotels.forEach(hotel, index) => {%>
+        <div id="hotel-<%= index+1 %>">
+          <div id="picture">
+            <img src="<%= hotel.image %>" alt="<%= hotel.name %> building" />
+ </div>
+          <div id="hotelInfo">
+            Hotel Name: <h3><%= hotel.name %></h3>
+
+            Stars: <%for(let stars=0; stars < hotel.stars; stars++ ){ %>
+                  ⭐
+            <%}%> <br>
+            Area: <%= hotel.area %> <br>
+            Price Per night: <%= hotel.price%> <br>
+            <%= hotel.reviews %>
+          </div>
         </div>
-        <div id="hotelInfo">
-          <h3>Four Seasons Hotel</h3>
-          <%=Hotel.name%>
-          Stars: ⭐⭐⭐⭐ <br>
-          Area : Manama,Bahrain <br>
-          Price Per night : 178 BD <br>
-          <%=Hotel.reviews%>
+     <% }%>
 
-
-
-        </div>
       </div>
     </div>
+
+<div id="nav-bar">
+
+  <%- include("../partials/nav.ejs") %>
+
+
+</div>
+
+
+
+
   </body>
 </html>
