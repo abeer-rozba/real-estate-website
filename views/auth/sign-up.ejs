@@ -3,9 +3,54 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+
     <title>Sign Up</title>
   </head>
   <body>
     <h1>Sign Up</h1>
+    <div id="side-design"></div>
+    <form action="/auth/sign-up" method="POST">
+      <div>
+        <input
+          type="text"
+          name="username"
+          id="username"
+          placeholder="username"
+        />
+      </div>
+      <br />
+      <div>
+        <input type="email" name="email" id="email" placeholder="email" />
+      </div>
+      <br />
+
+      <div>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="password"
+        />
+      </div>
+
+      <br />
+      <div>
+        <input
+          type="password"
+          name="confirmPassword"
+          id="password"
+          placeholder="confirm password"
+        />
+      </div>
+      <br />
+      <div id="submit-boarder"><button type="submit">Sign up</button></div>
+
+      <span id="quiry">
+        <p>Already have account? <a href="./sign-in">Sign-in</a></p>
+      </span>
+    </form>
+
+    <div id="back"><a href="/" style="color: grey">🔙 Home</a></div>
   </body>
 </html>
