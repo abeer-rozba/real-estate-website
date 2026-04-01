@@ -44,5 +44,4 @@ module.exports = {
   // getAllBookmarks,
   showProfile,
   editProfile,
-  // updateProfile,
 }
