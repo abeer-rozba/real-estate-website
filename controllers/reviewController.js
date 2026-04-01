@@ -11,6 +11,7 @@ const createReview = async (req, res) => {
       title: req.body.title,
       body: req.body.body
     })
+
     return res.send(review)
   } catch (error) {
     console.error('Error occurred while creating the review: ', error.message)
@@ -44,7 +45,7 @@ const updateReview = async (req, res) => {
   try {
     const review = await Review.findByIdAndUpdate(
       req.params.reviewId,
-      req.body,
+      { rating, title, body },
       { returnDocument: 'after' }
     )
     return res.send(review)
