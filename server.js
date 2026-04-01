@@ -36,6 +36,7 @@ app.use(
 )
 
 app.use(middleware.passUserToView)
+app.use(express.static("./style"))
 
 app.use("/auth", authRouter)
 app.use("/users", userRouter)

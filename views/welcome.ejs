@@ -3,12 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="\style.css" />
     <title>Lush Life</title>
   </head>
-  <body>
+  <body id="welcomPage">
     <p>WE KNOW THE BEST</p>
-    <h1>WHERE EVERY VISIT FEELS LIKE HOME</h1>
+    <h1 id="slogan">WHERE EVERY VISIT FEELS LIKE HOME .</h1>
     <button id="signIn">Sign In</button>
     <button id="signUp">Creat Account</button>
+
+    <script>
+      const signInButton = document.getElementById("signIn")
+      signInButton.addEventListener("click", () => {
+        window.location.href = "./auth/sign-in"
+      })
+
+      const signUpButton = document.getElementById("signUp")
+
+      signUpButton.addEventListener("click", () => {
+        window.location.href = "./auth/sign-up"
+      })
+    </script>
   </body>
 </html>
