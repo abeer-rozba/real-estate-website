@@ -1,5 +1,12 @@
 const Hotel = require('../models/Hotel')
 
+
+
+
+
+
+
+
 const getAllHotels = async (req, res) => {
   try {
     const hotels = await Hotel.find({})
