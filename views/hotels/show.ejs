@@ -1,0 +1,17 @@
+<%- include("../partials/header.ejs") %>
+<h2><%=hotel.name%> | <%for(let stars=0; stars < hotel.stars; stars++ ){ %>
+                  ⭐
+            <%}%></h2>
+<img src="<%=hotel.picture%>" alt="<%=hotel.name%>" width="400" />
+<p> Located in <%=hotel.area%> | Average Price Per Night: <%= hotel.averagePricePerNight %> BD</p>
+<form action="/hotels/<%=hotel._id%>/edit?_method=PUT">
+    <button>Edit Hotel</button>
+  </form>
+
+  <form action="/hotels/<%=hotel._id%>?_method=DELETE" method="POST">
+    <button type="submit">Delete Hotel</button>
+  </form>
+      <a href="/reviews/<%=hotel._id%>">See Reviews</a> <br>
+      <a href="/hotels">Go Back</a>
+
+<%- include("../partials/footer.ejs") %>
