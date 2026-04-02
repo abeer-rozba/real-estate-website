@@ -1,7 +1,18 @@
-<%- include("../partials/header.ejs") %>
-  <h2>Reviews for <%=hotel.name%></h2>
-  <p><a href="/reviews/<%=hotel._id%>/new">Post A Review</a></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Reviews</title>
+</head>
+<body id="reviews-page">
+  <%- include("../partials/header.ejs") %>
 
+  <h2>Reviews for <%=hotel.name%></h2>
+
+
+  <p><a href="/reviews/<%=hotel._id%>/new">Post A Review</a></p>
+<div id="reviews-list">
     <% if (reviews.length === 0) { %>
       <p>No reviews yet.</p>
     <% } %>
@@ -19,8 +30,15 @@
           <p>By: (unknown user)</p></li>
         <% } %>
       </ul>
-    <% }) %>
 
-    <p><a href="/hotels/<%=hotel._id%>">Go Back</a></p>
-  <a href="/hotels/new">Suggest A Hotel</a>
+    <% }) %>
+</div>
+<div class="back-suggest">
+    <div id="back-btn"><p><a href="/hotels/<%=hotel._id%>">Go Back</a></p></div>
+    <div id="suggest-btn"><a href="/hotels/new">Suggest A Hotel</a></div>
+
+</div>
+
 <%- include("../partials/footer.ejs") %>
+</body>
+</html>

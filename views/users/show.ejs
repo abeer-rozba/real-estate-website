@@ -1,9 +1,39 @@
-<%- include("../partials/header.ejs") %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body id="show-user">
+    <%- include("../partials/header.ejs") %>
 
-<h2><%= user.username %>'s Profile</h2>
-<p>Email: <%=user.email%></p>
-<a href="/users/<%=user._id%>/edit">Edit profile</a> <br />
-<a href="/auth/<%=user._id%>/update-password">Update password</a> <br />
-<a href="/users/<%=user._id%>/reviews">My Reviews</a>
+    <div id="user-info">
+      <div id="user-img">
+        <img
+          src="https://as1.ftcdn.net/jpg/03/39/45/96/1000_F_339459697_XAFacNQmwnvJRqe1Fe9VOptPWMUxlZP8.jpg"
+          alt="defult user image"
+        />
+      </div>
 
-<%- include("../partials/footer.ejs") %>
+      <h2><%= user.username %>'s Profile</h2>
+      <p>Email: <%=user.email%></p>
+    </div>
+
+    <div class="links">
+      <div id="edit-profile">
+        <a href="/users/<%=user._id%>/edit">Edit profile</a>
+      </div>
+
+      <div id="update-btn">
+        <a href="/auth/<%=user._id%>/update-password">Update password</a>
+      </div>
+
+      <div id="reviews-btn">
+        <a href="/users/<%=user._id%>/reviews">My Reviews</a>
+      </div>
+    </div>
+
+    <%- include("../partials/footer.ejs") %>
+  </body>
+</html>

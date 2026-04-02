@@ -1,11 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style/style.css">
+  <title>Document</title>
+</head>
+
+
+<body id="hotels-page">
+
 <%- include("../partials/header.ejs") %>
-  <h2>Explore Hotels</h2>
-  <ul>
+
+<div >
+
+<h1>Explore Hotels</h1>
+
+  <ul id="hotels-list">
     <% hotels.forEach((hotel) => { %>
-      <li>
-        <a href="/hotels/<%=hotel._id%>"><%=hotel.name%></a>
-      </li>
-    <% }) %>
+  <li>
+    <a href="/hotels/<%= hotel._id %>" class="hotel-link">
+      <%= hotel.name %>
+    </a>
+  </li>
+<% }) %>
   </ul>
-  <a href="/hotels/new">Suggest A Hotel</a>
+
+ <div id="suggest-btn"> <a href="/hotels/new">Suggest A Hotel</a></div>
+
 <%- include("../partials/footer.ejs") %>
+</div>
+</body>
+</html>
+

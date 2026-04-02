@@ -1,18 +1,55 @@
-<%- include("../partials/header.ejs") %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%=hotel.name%></title>
+</head>
+
+<body id="show-hotel">
+
+  </html><%- include("../partials/header.ejs") %>
+
+  <div id="hotel-info">
+
 <h2><%=hotel.name%> | <%for(let stars=0; stars < hotel.stars; stars++ ){ %>
                   ⭐
             <%}%></h2>
+
 <img src="<%=hotel.picture%>" alt="<%=hotel.name%>" width="400" />
+
 <p> Located in <%=hotel.area%> | Average Price Per Night: <%= hotel.averagePricePerNight %> BD</p>
 
-<form action="/hotels/<%=hotel._id%>/edit?_method=PUT">
-    <button>Edit Hotel</button>
-  </form>
+</div>
 
-  <form action="/hotels/<%=hotel._id%>?_method=DELETE" method="POST">
-    <button type="submit">Delete Hotel</button>
+
+
+<div id="edit-btn">
+<form action="/hotels/<%=hotel._id%>/edit?_method=PUT">
+    <button>Edit</button>
   </form>
-      <a href="/reviews/<%=hotel._id%>">See Reviews</a> <br>
-      <a href="/hotels">Go Back</a>
+</div>
+
+
+
+<div id="delete-btn">
+  <form action="/hotels/<%=hotel._id%>?_method=DELETE" method="POST">
+    <button type="submit">Delete</button>
+  </form>
+</div>
+
+ <br>
+
+  <div class="backReviewBtn">
+  <a href="/reviews/<%= hotel._id %>">View Reviews</a>
+
+
+
+  <a href="/hotels">Go Back</a>
+</div>
+
 
 <%- include("../partials/footer.ejs") %>
+
+
+</body>
