@@ -7,14 +7,23 @@
   <title>Lush Life</title>
 </head>
 <body>
-  <nav>
+  <nav class="navButtons">
     <% if (!user) { %>
-      <a href="/auth/sign-up">Sign Up</a> |
+      <a href="/auth/sign-up">Sign Up</a>
       <a href="/auth/sign-in">Sign In</a>
     <% } else { %>
-      <a href="/hotels">Explore Hotels | </a>
-      <a href="/users/<%=user._id%>">My Profile | </a>
-      <a href="/auth/sign-out">Sign Out</a>
+
+      <div class="navButtons">
+      <div id="hotels-btn"><a href="/hotels">Explore Hotels  </a></div>
+   <div id="profile-btn"><a href="/users/<%=user._id%>">My Profile  </a></div>
+      <div id="signOut-btn"><a href="/auth/sign-out">Sign Out</a></div>
+      </div>
+
+
+
     <% } %>
+
+
   </nav>
   <main>
+

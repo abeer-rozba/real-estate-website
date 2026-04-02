@@ -1,24 +1,265 @@
-/* /* #welcomePage {
+body {
   margin: 0;
   padding: 0;
-  height: 100vh;
-  width: 100vw;
-  background-image: url("/images/greyBh.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-} */
-#slogan {
-  align-items: end;
-  font-family:
-    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
 }
 
-#side-design {
-  height: 100;
+body {
+  background: #cbcbbd;
+}
+
+#hotels-page,
+#show-hotel,
+#show-user,
+#edit-page,
+#update-pass,
+#write-review,
+#reviews-page,
+#signIn-page,
+#signUp-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+h1 {
+  color: rgb(25, 54, 81);
+  margin-top: 100px;
+}
+
+#hotels-list {
+  text-decoration: none;
+  font-size: 20px;
+}
+
+#hotels-list a:hover {
+  border-bottom: 2px solid yellow;
+  color: rgb(24, 18, 75);
+  font-weight: bold;
+}
+
+footer {
+  margin-bottom: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 20px;
+  color: rgb(24, 18, 75);
+}
+
+.navButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.navButtons a,
+.links a {
+  padding: 8px 15px;
+  border: 3px solid rgb(24, 18, 75);
+  background-color: aliceblue;
+  border-radius: 5px;
+  color: rgb(24, 18, 75);
+}
+
+.navButtons a:hover,
+.links a:hover {
+  background: black;
+  color: white;
+}
+
+#suggest-btn,
+#back-btn {
+  width: 220px;
+  padding: 8px 12px;
+  border: 3px solid black;
+  background-color: aliceblue;
+  border-radius: 5px;
+  color: black;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 20px auto; /*center the btn in the page */
+}
+
+#suggest-btn:hover,
+.backReviewBtn:hover {
+  background-color: #bfbdb1;
+  color: white;
+  cursor: pointer;
 }
 
 a {
+  font-size: 14px;
   text-decoration: none;
-} */
+  font-family: sans-serif;
+  color: rgb(24, 18, 75);
+}
+
+#edit-btn button,
+#delete-btn button,
+#edit-btn a,
+#delete-btn a {
+  width: 70px;
+  padding: 7px;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  border-radius: 5px;
+  color: rgb(25, 54, 81);
+  font-weight: bolder;
+}
+
+#edit-btn button {
+  margin-bottom: 3px;
+}
+
+.backReviewBtn {
+  background-color: aliceblue;
+  padding: 10px;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  color: black;
+  border-radius: 5%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 5px solid rgb(25, 54, 81);
+  color: rgb(25, 54, 81);
+  font-weight: bolder;
+}
+
+#hotel-info h2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 20px auto;
+  margin-top: 40px;
+}
+
+#hotel-info img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 10px auto;
+  border: 5px solid rgb(25, 54, 81);
+  border-radius: 5px;
+}
+
+#hotel-info p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 20px auto;
+  font-weight: bold;
+  color: rgba(99, 56, 3, 0.841);
+}
+
+#edit-profile,
+#update-btn {
+  margin-bottom: 20px;
+}
+
+#user-info p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 20px auto;
+  margin-bottom: 50px;
+  color: rgb(25, 54, 81);
+}
+
+#user-info h2 {
+  margin-top: 20px;
+  margin-bottom: -10px;
+  color: rgb(25, 54, 81);
+}
+
+#user-info img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 20px auto;
+
+  width: 150px;
+  border-radius: 100%;
+  border: 3px solid rgb(25, 54, 81);
+}
+
+#edit-page input,
+#update-pass input,
+#write-review input,
+#signIn-page input,
+#signUp-page input {
+  padding: 5px;
+  width: 400px;
+  height: 30px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+#edit-page button,
+#update-pass button,
+#write-review button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 20px auto;
+
+  background-color: aliceblue;
+  padding: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  outline: inherit;
+  color: black;
+  border-radius: 5px;
+}
+
+#pass-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 20px auto;
+}
+
+#review-info form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#review-info label {
+  width: 400px;
+  text-align: left;
+  margin-top: 10px;
+}
+
+#reviews-list a {
+  font-size: 14px;
+  font-family: inherit;
+  color: rgb(24, 18, 75);
+}
+
+#reviews-list ul {
+  padding: 10px;
+  border: 3px solid black;
+  list-style: none; /* Removes the bullet points */
+  padding: 0;
+  margin-bottom: 20px;
+  width: 600px;
+  border-radius: 10px;
+}
